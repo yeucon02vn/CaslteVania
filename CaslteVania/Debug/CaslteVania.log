@@ -1,0 +1,36 @@
+﻿  Whip.cpp
+c:\users\administrator\desktop\game\casltevania\casltevania\whip.cpp(87): warning C4101: 'timeCollide': unreferenced local variable
+c:\users\administrator\desktop\game\casltevania\casltevania\whip.cpp(125): warning C4101: 'timeCollide': unreferenced local variable
+  Candle.cpp
+  Generating Code...
+  Compiling...
+  Simon.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(72): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(80): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(157): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(181): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(208): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(426): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(429): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\simon.cpp(463): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  QuadTree.cpp
+c:\users\administrator\desktop\game\casltevania\casltevania\quadtree.cpp(98): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\quadtree.cpp(131): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\quadtree.cpp(141): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\quadtree.cpp(143): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Ground.cpp
+  GameObject.cpp
+c:\users\administrator\desktop\game\casltevania\casltevania\gameobject.cpp(65): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\gameobject.cpp(66): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\gameobject.cpp(67): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\gameobject.cpp(68): warning C4244: '=': conversion from 'float' to 'LONG', possible loss of data
+c:\users\administrator\desktop\game\casltevania\casltevania\gameobject.cpp(105): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  Skipping... (no relevant changes detected)
+  main.cpp
+  StateManager.cpp
+  GamePlayStateOne.cpp
+  Game.cpp
+  CaslteVania.vcxproj -> C:\Users\Administrator\Desktop\game\CaslteVania\Debug\CaslteVania.exe
+  CaslteVania.vcxproj -> C:\Users\Administrator\Desktop\game\CaslteVania\Debug\CaslteVania.pdb (Partial PDB)

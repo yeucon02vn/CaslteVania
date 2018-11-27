@@ -1,0 +1,9 @@
+﻿  TileMap.cpp
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+c:\users\administrator\documents\visual studio 2015\projects\castlevania\castlevania\global.h(4): warning C4005: 'DIRECTINPUT_VERSION': macro redefinition
+  c:\program files (x86)\microsoft directx sdk (june 2010)\include\dinput.h(42): note: see previous definition of 'DIRECTINPUT_VERSION'
+c:\users\administrator\documents\visual studio 2015\projects\castlevania\castlevania\tilemap.cpp(60): warning C4244: 'initializing': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\administrator\documents\visual studio 2015\projects\castlevania\castlevania\tilemap.cpp(61): warning C4244: 'initializing': conversion from 'FLOAT' to 'int', possible loss of data
+c:\users\administrator\documents\visual studio 2015\projects\castlevania\castlevania\tilemap.cpp(67): warning C4244: '=': conversion from 'FLOAT' to 'int', possible loss of data
+  CastleVania.vcxproj -> C:\Users\Administrator\Documents\Visual Studio 2015\Projects\CastleVania\Debug\CastleVania.exe
+  CastleVania.vcxproj -> C:\Users\Administrator\Documents\Visual Studio 2015\Projects\CastleVania\Debug\CastleVania.pdb (Partial PDB)

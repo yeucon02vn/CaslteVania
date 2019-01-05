@@ -49,6 +49,7 @@ public:
 public:
 	bool isDropItem;
 	bool isEnable;
+	bool isEffect;
 	void SetPosition(float x, float y) { this->x = x, this->y = y; }
 	void SetSpeed(float vx, float vy) { this->vx = vx, this->vy = vy; }
 	void GetPosition(float &x, float &y) { x = this->x; y = this->y; }
@@ -81,6 +82,7 @@ public:
 	virtual void Render() = 0;
 	virtual void SetState(int state) { this->state = state; }
 	virtual void LoadResources() = 0;
-
+	virtual void SetHP(int hp) {}
+	virtual bool checkWhip() { return 1; }
 	~GameObject();
 };

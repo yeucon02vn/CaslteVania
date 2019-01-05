@@ -55,32 +55,32 @@ int Animation::getLastFrame()
 	return frames.size() -1;
 }
 
-//void Animation::Draw(float x, float y, Camera * cam, int alpha)
-//{
-//	DWORD now = GetTickCount();
-//	if (currentFrame == -1)
-//	{
-//		currentFrame = 0;
-//		lastFrameTime = now;
-//	}
-//	else
-//	{
-//		DWORD t = frames[currentFrame]->GetTime();
-//		if (now - lastFrameTime >= t)
-//		{
-//			currentFrame++;
-//			lastFrameTime = now;
-//
-//
-//			if (currentFrame == frames.size())
-//			{
-//				currentFrame = 0;
-//			}
-//		}
-//
-//	}
-//	frames[currentFrame]->GetSprite()->DrawCamera(x, y,cam, alpha);
-//}
+void Animation::DrawBoard(float x, float y, int alpha )
+{
+	DWORD now = GetTickCount();
+	if (currentFrame == -1)
+	{
+		currentFrame = 0;
+		lastFrameTime = now;
+	}
+	else
+	{
+		DWORD t = frames[currentFrame]->GetTime();
+		if (now - lastFrameTime >= t)
+		{
+			currentFrame++;
+			lastFrameTime = now;
+
+
+			if (currentFrame == frames.size())
+			{
+				currentFrame = 0;
+			}
+		}
+
+	}
+	frames[currentFrame]->GetSprite()->DrawBoard(x, y, alpha);
+}
 
 void Animation::Draw(int x, int y)
 {						

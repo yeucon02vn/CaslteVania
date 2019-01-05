@@ -23,7 +23,7 @@ public:
 	int getHeight();
 	void Draw(float x, float y, RECT rect, int alpha);
 	void Draw(float x, float y, int alpha = 255);
-	//void DrawCamera(float x, float y, Camera *cam, int alpha);
+	void DrawBoard(float x, float y, int alpha = 255);
 };
 
 typedef Sprite * LPSPRITE;

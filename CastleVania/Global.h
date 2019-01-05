@@ -1,5 +1,7 @@
 #pragma once
 
+#define SAFE_DELETE(p) {if(p) { delete(p); p = NULL;} } 
+
 #define BACKGROUND_COLOR D3DCOLOR_XRGB(0, 0, 0)
 #define DIRECTINPUT_VERSION 0x0800
 
@@ -10,11 +12,13 @@
 #define SCREEN_WIDTH	640
 #define SCREEN_HEIGHT	480
 
-#define FPS					120
+#define FPS					200
 
+#define GAME_FONT			L"Resource\\font\\prstart.ttf"
 #define MAX_TIME_PER_FRAME		(DWORD)1000 / FPS
-#define TITLE_SCREEN			L"Resource\\sprites\\TITLE_SCREEN.bmp"
+#define MENU_SCREEN			L"Resource\\sprites\\TITLE_SCREEN.bmp"
 #define TITLE_ANIMATION			L"Resource\\sprites\\TitleAnimation.png"
+#define INTRO_SCREEN			L"Resource\\sprites\\intro.png"
 #define SIMON_L_SPRITE			L"Resource\\sprites\\Simon\\SIMONL.png"
 #define SIMON_R_SPRITE			L"Resource\\sprites\\Simon\\SIMONR.png"
 #define WHIP_R_SPRITE			L"Resource\\sprites\\Weapons\\WHIPR.png"
@@ -30,20 +34,92 @@
 
 
 #define ID_TEX_BBOX -100	
-#define	ID_LEVEL_ONE_MATRIX_BG	 0
+
+#define ID_TEX_TITLE_ANIMATION 901
+#define ID_TEX_HELICOP 1002
+#define ID_TEX_BAT_INTRO 1003
+#define ID_TEX_MENU_SCREEN	-1
+#define ID_TEX_INTRO_SCREEN 0
+#define	ID_TEX_LEVEL_ONE		1
+#define	ID_TEX_LEVEL_TWO		2
+
 #define ID_TEX_SIMONR 101
 #define ID_TEX_SIMONL 102
 #define ID_TEX_WHIPR 201
 #define ID_TEX_WHIPL 202
 #define ID_TEX_EFFECT 301
 #define ID_TEX_LCANDLE 401
+#define ID_TEX_MCANDLE 402
 #define ID_TEX_GROUND 501
+#define ID_TEX_GROUND1 502
+#define ID_TEX_GROUND2 503
+
 #define ID_TEX_MORNING_STAR 601
 #define ID_TEX_BIG_HEART 701
+#define ID_TEX_SMALL_HEART 702
+
+#define ID_TEX_INVICIBILITY 703
+#define ID_TEX_ROAST 704
+#define ID_TEX_ROSARY 705
+#define ID_TEX_DOUBLE_SHOT 706
+#define ID_TEX_TRIPLE_SHOT 707
+#define ID_TEX_DOUBLE_SHOT_UI 708
+#define ID_TEX_TRIPLE_SHOT_UI 709
+
 #define ID_TEX_KNIFE 801
 #define ID_TEX_KNIFE_L 802
 
+#define ID_TEX_ITEM_AXE 803
+#define ID_TEX_AXE 804
+#define ID_TEX_AXE_L 805
+
+#define ID_TEX_ITEM_CROSS 806
+#define ID_TEX_CROSS 807
+#define ID_TEX_CROSS_L 808
+
+#define ID_TEX_HOLYWATER 809
+#define ID_TEX_HOLYWATER_L 810
+#define ID_TEX_STOP_WATCH 811
+
+#define ID_TEX_DOOR 504
+#define ID_TEX_DOOR1 505
+
+#define ID_TEX_STAIR_RIGHT 1401
+#define ID_TEX_STAIR_LEFT 1402
+
+#define ID_TEX_BATL 1101
+#define ID_TEX_BATR	1102
+#define ID_TEX_ZOMBIEL 1201
+#define ID_TEX_ZOMBIER	1202
+#define ID_TEX_PANTHERL 1301
+#define ID_TEX_PANTHERR	1302
+#define ID_TEX_MERMANL 1501
+#define ID_TEX_MERMANR 1502
+
+#define ID_TEX_BULLETSL 1601
+#define ID_TEX_BULLETSR 1602
+
+#define ID_TEX_DEAD1 1701
+#define ID_TEX_DEAD2 1702
+#define ID_TEX_DEAD3 1703
+
+#define ID_TEX_BOSS 1801
+
+#define ID_TEX_HP 1901
+#define ID_TEX_BOSSHP 1902
+#define ID_TEX_NOHP 1903
+#define ID_TEX_BLACKBOARD 1904
+
 // Animations' status
+#define BAT_STATE_FLY 1
+#define BAT_STATE_IDLE 101
+#define BAT_STATE_DIE 201
+
+#define ZOMBIE_STATE_WALK  2
+
+#define PANTHER_STATE_JUMP 3
+#define PANTHER_STATE_IDLE 103
+#define PANTHER_STATE_DIE 203
 
 #define SIMON_STATE_IDLE			0
 #define SIMON_STATE_WALK			100
@@ -52,17 +128,45 @@
 #define SIMON_STATE_ATK				400
 #define SIMON_STATE_S_ATK			500
 #define SIMON_STATE_DIE				900
-
+#define SIMON_STATE_USE_ITEM		600
+#define SIMON_STATE_STAIR_UP		700
+#define SIMON_STATE_STAIR_DOWN		800
+#define SIMON_STATE_CHANGE			1000		
+#define SIMON_STATE_HURT			1100
 
 #define GRAVITY						0.002f
-#define SIMON_WALKING_SPEED			0.1f 
-#define SIMON_JUMP_SPEED_Y			0.5f
+
+
+#define SIMON_STAIR_X_SPEEP			0.001f
+#define SIMON_STAIR_Y_SPEEP			0.001f
+#define SIMON_WALKING_SPEED			0.12f 
+#define SIMON_JUMP_SPEED_Y			0.6f
 #define SIMON_JUMP_DEFLECT_SPEED	0.2f
 #define SIMON_DIE_DEFLECT_SPEED		0.5f
 #define ITEM_FALLING_SPEED			0.1f
-#define ITEM_Knife_SPEED			0.2f 
+#define WATER_SPLASSING_SPEED		0.1f
+#define ITEM_Knife_SPEED			0.5f 
+#define ITEM_AXE_SPEED				0.08f 
+#define ITEM_AXE_JUMP				0.5f 
+#define ITEM_CROSS_SPEED			0.3f
+#define ITEM_HOLYWATER_SPEED		0.2f
+#define ITEM_HOLYWATER_JUMP			0.02f
+
+#define HELICOP_SPEED				0.1f 
+#define BAT_WALK_SPEED				0.05f
+#define BAT_FLY_SPEED				0.07f
+#define ZOMBIE_WALK_SPEED			0.05f
+#define PANTHER_WALK_SPEED			0.25f
+#define PANTHER_JUMP_SPEED			0.1f
+#define PANTHER_JUMP_DEFLECT		0.01f
+#define ITEM_BULLET_SPEED			0.1f 
+
+#define MERMAN_WALK_SPEED			0.2f
+#define MERMAN_JUMP_SPEED			0.3f
 
 
+#define DOOR_WIDTH					16
+#define DOOR_HEIGHT					96
 #define GROUND_WIDTH				32
 #define GROUND_HEIGHT				32
 #define LCANDLE_WIDTH				32
@@ -71,13 +175,65 @@
 #define SIMON_BBOX_HEIGHT			60
 #define WHIP_BBOX_HEIGHT			20
 #define WHIP_BBOX_WIDTH				40
+
 #define BIG_HEART_BBOX_WIDTH		24
 #define	BIG_HEART_BBOX_HEIGHT		20
+#define SMALL_HEART_BBOX_WIDTH		16
+#define	SMALL_HEART_BBOX_HEIGHT		16
+
 #define MORNING_STAR_BBOX_WIDTH		32
 #define MORNING_STAR_BBOX_HEIGHT	32
+
 #define KNIFE_BBOX_WIDTH	        32
 #define KNIFE_BBOX_HEIGHT			18
+#define AXE_BBOX_WIDTH				30
+#define AXE_BBOX_HEIGHT				28
+#define CROSS_BBOX_WIDTH			28
+#define CROSS_BBOX_HEIGHT			28
+#define HOLYWATER_BBOX_WIDTH		32
+#define HOLYWATER_BBOX_HEIGHT		26
+#define STOPWATCH_BBOX_WIDTH		30
+#define STOPWATCH_BBOX_HEIGHT		32
 
+#define INVI_BBOX_WIDTH			33
+#define INVI_BBOX_HEIGHT		40
+#define ROAST_BBOX_WIDTH		32
+#define ROAST_BBOX_HEIGHT		26
+#define ROSASY_BBOX_WIDTH		32
+#define ROSASY_BBOX_HEIGHT		32
+#define DOUBLE_BBOX_WIDTH		28
+#define DOUBLE_BBOX_HEIGHT		28
+#define TRIPLE_BBOX_WIDTH		28
+#define TRIPLE_BBOX_HEIGHT		28
+
+#define BAT_BBOX_WIDTH				32
+#define BAT_BBOX_HEIGHT				32
+#define ZOMBIE_BBOX_WIDTH			34
+#define ZOMBIE_BBOX_HEIGHT			64
+#define PANTHER_BBOX_WIDTH			64
+#define PANTHER_BBOX_HEIGHT			32
+#define STAIR_WIDTH				32
+#define STAIR_HEIGHT			32
+#define MERMAN_BBOX_WIDTH			32
+#define MERMAN_BBOX_HEIGHT			64
+#define BULLET_BBOX_WIDTH			14
+#define BULLET_BBOX_HEIGHT			12
+
+#define BAT_ANI_IDLE 0
+#define BAT_ANI_FLY_RIGHT 1
+#define BAT_ANI_FLY_LEFT 2
+
+#define PANTHER_ANI_IDLE_RIGHT 0
+#define PANTHER_ANI_IDLE_LEFT 1
+#define PANTHER_ANI_WALK_RIGHT	2
+#define PANTHER_ANI_WALK_LEFT	3
+
+#define ZOMBIE_ANI_WALK_RIGHT	0
+#define ZOMBIE_ANI_WALK_LEFT	1
+
+#define MERMAN_ANI_IDLE			0
+#define MERMAN_ANI_WALK_RIGHT	1
+#define MERMAN_ANI_WALK_LEFT	2
 
 #define SIMON_ANI_IDLE_RIGHT		0
 #define SIMON_ANI_IDLE_LEFT			1
@@ -91,8 +247,28 @@
 #define SIMON_ANI_S_ATK_LEFT		9
 #define SIMON_ANI_JUMP_RIGHT		10
 #define SIMON_ANI_JUMP_LEFT			11
-#define SIMON_ANI_DIE				99
-#define SIMON_STATE_USE_ITEM		12
+#define SIMON_ANI_EFFECT_RIGHT		12
+#define SIMON_ANI_EFFECT_LEFT		13	
+#define SIMON_ANI_BACK				14	
+#define SIMON_ANI_UP_STAIR_RIGHT	15
+#define SIMON_ANI_DOWN_STAIR_RIGHT	16	
+#define SIMON_ANI_UP_STAIR_LEFT		17	
+#define SIMON_ANI_DOWN_STAIR_LEFT	18
+
+#define SIMON_ANI_IDLE_UP_STAIR_RIGHT	19
+#define SIMON_ANI_IDLE_DOWN_STAIR_RIGHT	20
+#define SIMON_ANI_IDLE_UP_STAIR_LEFT	21
+#define SIMON_ANI_IDLE_DOWN_STAIR_LEFT	22
+
+#define SIMON_ANI_ATK_UP_STAIR_RIGHT	23
+#define SIMON_ANI_ATK_DOWN_STAIR_RIGHT	24
+#define SIMON_ANI_ATK_UP_STAIR_LEFT		25
+#define SIMON_ANI_ATK_DOWN_STAIR_LEFT	26
+
+#define SIMON_ANI_HURT_RIGHT			27
+#define SIMON_ANI_HURT_LEFT				28	
+#define SIMON_ANI_DIE_RIGHT				29
+#define SIMON_ANI_DIE_LEFT				30
 
 #define WHIP_ANI_NORMAL_RIGHT			0
 #define WHIP_ANI_LV1_RIGHT				1
@@ -103,13 +279,33 @@
  
 #define ITEM_ANI_BIG_HERT		 		0
 #define ITEM_ANI_WHIP					1
-#define ITEM_ANI_KNIFE			2
+#define ITEM_ANI_KNIFE					2
+#define ITEM_ANI_SMALL_HERT		 		3
+#define ITEM_ANI_AXE					4
+#define ITEM_ANI_CROSS					5
+#define ITEM_ANI_HOLYWATER				6
+#define ITEM_ANI_STOPWATCH				7
+#define ITEM_ANI_INVI				8
+#define ITEM_ANI_ROAST				9
+#define ITEM_ANI_ROSASY				10
+#define ITEM_ANI_DOUBLE				11
+#define ITEM_ANI_TRIPLE				12
 
 
-#define SIMON_ATTACK_TIME			320
-#define SIMON_UNTOUCHABLE_TIME		5000
+#define SIMON_ATTACK_TIME			350
+#define SIMON_UNTOUCHABLE_TIME		2500
 #define ITEM_TIME_DESTROYED         5000
 
 #define WHIP_NORMAL 0
 #define WHIP_LV1	1
 #define WHIP_LV2	2
+
+
+#define MENU_STATE	-1
+#define INTRO_STATE	0
+#define STATE_LV1	1
+#define STATE_LV2	2
+
+
+
+

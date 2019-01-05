@@ -27,15 +27,57 @@ void Knife::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)
 	else vx = ITEM_Knife_SPEED;
 
 	GameObject::Update(dt);
-	x += dx;
-}
 
+	vector<LPCOLLISIONEVENT> coEvents;
+	vector<LPCOLLISIONEVENT> coEventsResult;
+
+	coEvents.clear();
+	if (isEnable == true)
+		CalcPotentialCollisions(coObjects, coEvents);
+
+	if (coEvents.size() == 0)
+	{
+		x += dx;
+	}
+	else
+	{
+		float min_tx, min_ty, nx = 0, ny;
+
+		FilterCollision(coEvents, coEventsResult, min_tx, min_ty, nx, ny);
+
+		// block 
+		for (UINT i = 0; i < coEventsResult.size(); i++)
+		{
+			LPCOLLISIONEVENT e = coEventsResult[i];
+
+
+			if (dynamic_cast<Boss *> (e->obj))
+			{
+				e->obj->SetState(BOSS_STATE_HURT);
+				coEnemy = true;
+			}
+
+			else if (dynamic_cast<Enemy *> (e->obj))
+			{
+				e->obj->SetHP(2);
+				coEnemy = true;
+			}
+			else
+			{
+				x += dx;
+			}
+		}
+
+	}
+}
 void Knife::setPositionKnife(float x, float y)
 {
 	if (nx > 0)
 		x += 50;
 
 	y += 15;
+	if (isSit == true)
+		y += 15.0f;
 	SetPosition(x, y);
 }
 

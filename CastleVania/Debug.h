@@ -8,3 +8,5 @@
 #include <stdlib.h>
 
 void DebugOut(wchar_t *fmt, ...);
+
+

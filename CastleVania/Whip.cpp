@@ -150,6 +150,7 @@ void Whip::LoadResources()
 
 void Whip::Update()
 {
+
 }
 
 void Whip::Render()

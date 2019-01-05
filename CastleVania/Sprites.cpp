@@ -31,11 +31,11 @@ void Sprite::Draw(float x, float y, RECT rect, int alpha)
 	game->Draw(x, y, texture, rect.left, rect.top, rect.right, rect.bottom, alpha);
 }
 
-//void Sprite::DrawCamera(float x, float y, Camera *cam, int alpha)
-//{
-//	Game * game = Game::GetInstance();
-//	game->DrawCamera(x, y, texture, cam, left, top, right, bottom, alpha);
-//}
+void Sprite::DrawBoard(float x, float y, int alpha)
+{
+	Game * game = Game::GetInstance();
+	game->DrawBoard(x, y, texture, left, top, right, bottom, alpha);
+}
 
 int Sprite::getWidth()
 {

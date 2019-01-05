@@ -15,6 +15,7 @@ GameObject::GameObject()
 	nx = 1;
 	isDropItem = false;
 	isEnable = true;
+	isEffect = true;
 }
 
 void GameObject::Update(DWORD dt, vector<LPGAMEOBJECT> *coObjects)

@@ -25,7 +25,7 @@ public:
 	void setCurrentFrame(int frame);
 	int getCurrentFrame();
 	int getLastFrame();
-	//void Draw(float x, float y, Camera *cam, int alpha = 255);
+	void DrawBoard(float x, float y,  int alpha = 255);
 	void Render(float x, float y, int alpha = 255);
 	void Draw(int x, int y);
 
